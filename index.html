@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0A0A0A">
+<meta name="description" content="MAXFIT GYMS Abuja — AI-powered fitness platform. Train smarter, book trainers, track progress.">
+<title>MAXFIT GYMS Abuja — Train Smarter. Get Stronger. Stay Consistent.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="mobile.css">
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<!-- ============ NOISE / GRAIN OVERLAY ============ -->
+<div class="grain"></div>
+
+<!-- ============ PRELOADER ============ -->
+<div class="preloader" id="preloader">
+  <div class="preloader-mark">MAX<span>FIT</span></div>
+  <div class="preloader-bar"><div class="preloader-fill"></div></div>
+</div>
+
+<!-- ============ NAVBAR ============ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark">MAX<span class="accent">FIT</span></span>
+      <span class="brand-sub">GYMS ABUJA</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#finder">Find a Program</a>
+      <a href="#reels">Exercise Reels</a>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#trainers">Trainers</a>
+      <a href="#nutrition">Nutrition</a>
+      <a href="#plans">Membership</a>
+      <a href="#stories">Stories</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#directions" class="btn btn-ghost btn-sm">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-7.58 8-13A8 8 0 0 0 4 9c0 5.42 8 13 8 13Z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="2"/></svg>
+        Directions
+      </a>
+      <a href="#finder" class="btn btn-primary btn-sm">Start Now</a>
+    </div>
+    <button class="nav-burger" id="navBurger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile" id="navMobile">
+    <a href="#finder">Find a Program</a>
+    <a href="#reels">Exercise Reels</a>
+    <a href="#dashboard">Dashboard</a>
+    <a href="#trainers">Trainers</a>
+    <a href="#nutrition">Nutrition</a>
+    <a href="#plans">Membership</a>
+    <a href="#stories">Stories</a>
+    <a href="#directions">Directions</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-bg">
+    <img id="heroImage" src="images/hero.jpg" alt="MAXFIT gym training floor" />
+    <div class="hero-scanlines"></div>
+  </div>
+
+  <div class="hud-frame">
+    <span class="hud-corner tl"></span><span class="hud-corner tr"></span>
+    <span class="hud-corner bl"></span><span class="hud-corner br"></span>
+  </div>
+
+  <div class="container hero-inner">
+    <div class="hero-eyebrow" data-aos>
+      <span class="dot"></span> ABUJA'S NEXT-GEN FITNESS PLATFORM
+    </div>
+
+    <h1 class="hero-title" data-aos>
+      TRAIN <span class="outline">SMARTER.</span><br>
+      GET <span class="fill">STRONGER.</span><br>
+      STAY CONSISTENT.
+    </h1>
+
+    <p class="hero-sub" data-aos>
+      Stop guessing your workouts. MAXFIT reads your goal, builds your plan, tracks
+      your progress, and connects you to a real trainer — all in one platform.
+    </p>
+
+    <div class="hero-ctas" data-aos>
+      <a href="#finder" class="btn btn-primary btn-lg">
+        Start Your Fitness Journey
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+      </a>
+      <a href="#book" class="btn btn-outline btn-lg">Book a Free Consultation</a>
+    </div>
+
+    <!-- AI SEARCH — SIGNATURE ELEMENT -->
+    <div class="ai-search" id="aiSearch" data-aos>
+      <div class="ai-search-label">
+        <span class="ai-pulse"></span> AI FITNESS SEARCH — tell us your goal
+        <span class="ai-badge">MAXFIT AI</span>
+        <span class="ai-kbd-hint">Press <kbd>/</kbd></span>
+      </div>
+      <div class="ai-search-bar">
+        <svg class="ai-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z" stroke="currentColor" stroke-width="1.8"/><path d="M19 11a7 7 0 0 1-14 0M12 18v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <input type="text" id="aiInput" placeholder="I want to lose 10kg…" autocomplete="off" aria-label="Describe your fitness goal">
+        <button class="ai-mic" id="aiMic" aria-label="Voice search — tap and speak your goal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z" stroke="currentColor" stroke-width="1.8"/><path d="M19 11a7 7 0 0 1-14 0M12 18v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <button class="ai-go" id="aiGo">Analyze<span class="go-arrow">→</span></button>
+      </div>
+
+      <!-- Live voice studio — waveform + transcript while speaking -->
+      <div class="ai-voice-studio" id="aiVoiceStudio" hidden>
+        <div class="ai-waveform" id="aiWaveform" aria-hidden="true"></div>
+        <p class="ai-voice-status" id="aiVoiceStatus">Tap the mic and speak your goal…</p>
+        <p class="ai-voice-transcript" id="aiVoiceTranscript"></p>
+      </div>
+
+      <div class="ai-chips">
+        <button class="chip" data-q="I want to lose 10kg">Lose 10kg</button>
+        <button class="chip" data-q="I need a workout for football">Football fitness</button>
+        <button class="chip" data-q="I want to build muscle">Build muscle</button>
+        <button class="chip" data-q="I need beginner workouts">Beginner</button>
+        <button class="chip" data-q="I want to improve my endurance">Endurance</button>
+      </div>
+
+      <!-- AI RESULT PANEL -->
+      <div class="ai-result" id="aiResult">
+        <div class="ai-result-head">
+          <div class="ai-result-scan">
+            <div class="scan-bar"></div>
+            <span id="aiScanText">ANALYZING GOAL…</span>
+          </div>
+          <button class="ai-close" id="aiClose">✕</button>
+        </div>
+        <div class="ai-result-body" id="aiResultBody"><!-- injected --></div>
+      </div>
+    </div>
+
+    <div class="hero-stats" data-aos>
+      <div class="stat"><span class="stat-num" data-count="2400">0</span><span class="stat-label">Active Members</span></div>
+      <div class="stat"><span class="stat-num" data-count="38">0</span><span class="stat-label">Expert Trainers</span></div>
+      <div class="stat"><span class="stat-num" data-count="120000">0</span><span class="stat-label">Workouts Logged</span></div>
+      <div class="stat"><span class="stat-num" data-count="9">0</span><span class="stat-label">Years in Abuja</span></div>
+    </div>
+  </div>
+
+  <div class="scroll-cue"><span></span> SCROLL</div>
+</section>
+
+<!-- ============ MANUAL FINDER ============ -->
+<section class="section finder-section" id="finder">
+  <div class="container">
+    <div class="section-head" data-aos>
+      <span class="eyebrow">[ 02 ] — SMART FITNESS FINDER</span>
+      <h2>Build your plan manually,<br>down to the exact day you train.</h2>
+      <p class="section-sub">No AI needed. Filter by what matters to you and we'll surface the program, trainer, and plan that fit.</p>
+    </div>
+
+    <div class="finder-grid" data-aos>
+      <div class="filter-col">
+        <div class="filter-group">
+          <label>Goal</label>
+          <select id="fGoal">
+            <option value="">Any goal</option>
+            <option>Fat Loss</option>
+            <option>Muscle Gain</option>
+            <option>Football Performance</option>
+            <option>Endurance</option>
+            <option>General Fitness</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Fitness Level</label>
+          <select id="fLevel">
+            <option value="">Any level</option>
+            <option>Beginner</option>
+            <option>Intermediate</option>
+            <option>Advanced</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Gender</label>
+          <select id="fGender">
+            <option value="">Any</option>
+            <option>Male</option>
+            <option>Female</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Age Group</label>
+          <select id="fAge">
+            <option value="">Any age</option>
+            <option>16–24</option>
+            <option>25–34</option>
+            <option>35–44</option>
+            <option>45+</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Membership Type</label>
+          <select id="fMembership">
+            <option value="">Any plan</option>
+            <option>Basic</option>
+            <option>Pro</option>
+            <option>Elite</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Training Days / Week</label>
+          <select id="fDays">
+            <option value="">Any</option>
+            <option>2–3 days</option>
+            <option>4–5 days</option>
+            <option>6+ days</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Workout Category</label>
+          <select id="fCategory">
+            <option value="">Any category</option>
+            <option>Strength</option>
+            <option>Cardio</option>
+            <option>Functional</option>
+            <option>Football Drills</option>
+            <option>Core</option>
+            <option>Mobility</option>
+          </select>
+        </div>
+        <button class="btn btn-primary btn-block" id="findBtn">Find My Program</button>
+      </div>
+
+      <div class="filter-result" id="filterResult">
+        <div class="filter-result-empty">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v3l-6 7v5l-4 2v-7L4 7V4Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          <p>Set your filters and tap <strong>Find My Program</strong> — your personalized recommendation card will appear here.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXERCISE REELS ============ -->
+<section class="section reels-section" id="reels">
+  <div class="container">
+    <div class="section-head" data-aos>
+      <span class="eyebrow">[ 03 ] — EXERCISE REELS</span>
+      <h2>Watch it before<br>you work it.</h2>
+      <p class="section-sub">Swipe through short-form training clips across every category — built for how you already watch video.</p>
+    </div>
+  </div>
+
+  <div class="rail-wrap" data-aos>
+    <button class="rail-arrow left reel-arrow" id="reelsArrowLeft" aria-label="Scroll to previous video">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="reels-rail" id="reelsRail">
+      <!-- reel cards injected by JS -->
+    </div>
+    <button class="rail-arrow right reel-arrow" id="reelsArrowRight" aria-label="Scroll to next video">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+
+  <div class="reels-tabs container" id="reelTabs" data-aos>
+    <button class="rtab active" data-cat="all">All</button>
+    <button class="rtab" data-cat="Fat Loss">Fat Loss</button>
+    <button class="rtab" data-cat="Strength">Strength</button>
+    <button class="rtab" data-cat="Cardio">Cardio</button>
+    <button class="rtab" data-cat="Functional">Functional</button>
+    <button class="rtab" data-cat="Football">Football</button>
+    <button class="rtab" data-cat="Core">Core</button>
+    <button class="rtab" data-cat="Mobility">Mobility</button>
+  </div>
+</section>
+
+<!-- ============ DASHBOARD ============ -->
+<section class="section dashboard-section" id="dashboard">
+  <div class="container">
+    <div class="section-head light" data-aos>
+      <span class="eyebrow">[ 04 ] — PERSONAL FITNESS DASHBOARD</span>
+      <h2>Every rep. Every kilo.<br>Tracked automatically.</h2>
+      <p class="section-sub">A live look at what members see when they log into their MAXFIT account.</p>
+    </div>
+
+    <div class="dash-grid" data-aos>
+      <!-- Weight progress -->
+      <div class="dash-card span-2">
+        <div class="dash-card-head">
+          <h4>Weight Progress</h4>
+          <span class="dash-tag down">-6.2kg in 8 weeks</span>
+        </div>
+        <svg class="weight-chart" viewBox="0 0 480 160" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="wGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#00FF85" stop-opacity="0.35"/>
+              <stop offset="100%" stop-color="#00FF85" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <polyline class="weight-line" points="0,40 60,55 120,48 180,70 240,66 300,90 360,86 420,108 480,112" fill="none"/>
+          <polygon points="0,40 60,55 120,48 180,70 240,66 300,90 360,86 420,108 480,112 480,160 0,160" fill="url(#wGrad)"/>
+          <circle class="end-dot" cx="480" cy="112" r="5"/>
+        </svg>
+        <div class="chart-axis"><span>Wk 1</span><span>Wk 2</span><span>Wk 3</span><span>Wk 4</span><span>Wk 5</span><span>Wk 6</span><span>Wk 7</span><span>Wk 8</span></div>
+      </div>
+
+      <!-- Streak -->
+      <div class="dash-card">
+        <div class="dash-card-head"><h4>Workout Streak</h4></div>
+        <div class="streak-flame">🔥<span>14</span></div>
+        <p class="dash-note">days in a row — personal best is 21</p>
+        <div class="streak-dots">
+          <span class="d on"></span><span class="d on"></span><span class="d on"></span><span class="d on"></span><span class="d on"></span><span class="d off"></span><span class="d on"></span>
+        </div>
+      </div>
+
+      <!-- Calories -->
+      <div class="dash-card">
+        <div class="dash-card-head"><h4>Calories Burned</h4></div>
+        <div class="ring-wrap">
+          <svg viewBox="0 0 120 120" class="ring">
+            <circle cx="60" cy="60" r="50" class="ring-bg"/>
+            <circle cx="60" cy="60" r="50" class="ring-fg" style="--p:78"/>
+          </svg>
+          <div class="ring-center"><strong>2,340</strong><span>/ 3,000 kcal</span></div>
+        </div>
+      </div>
+
+      <!-- BMI -->
+      <div class="dash-card">
+        <div class="dash-card-head"><h4>BMI</h4></div>
+        <div class="bmi-gauge">
+          <div class="bmi-track">
+            <span class="bmi-zone z1"></span><span class="bmi-zone z2"></span><span class="bmi-zone z3"></span><span class="bmi-zone z4"></span>
+            <div class="bmi-needle" style="left:46%"></div>
+          </div>
+          <div class="bmi-value">22.8 <small>Normal</small></div>
+        </div>
+      </div>
+
+      <!-- Strength progress -->
+      <div class="dash-card span-2">
+        <div class="dash-card-head"><h4>Strength Progress</h4><span class="dash-tag">1RM estimates</span></div>
+        <div class="bar-row"><span>Bench Press</span><div class="bar"><div class="bar-fill" style="width:70%"></div></div><strong>82kg</strong></div>
+        <div class="bar-row"><span>Squat</span><div class="bar"><div class="bar-fill" style="width:88%"></div></div><strong>118kg</strong></div>
+        <div class="bar-row"><span>Deadlift</span><div class="bar"><div class="bar-fill" style="width:94%"></div></div><strong>142kg</strong></div>
+        <div class="bar-row"><span>Overhead Press</span><div class="bar"><div class="bar-fill" style="width:55%"></div></div><strong>48kg</strong></div>
+      </div>
+
+      <!-- Measurements -->
+      <div class="dash-card">
+        <div class="dash-card-head"><h4>Body Measurements</h4></div>
+        <ul class="measure-list">
+          <li><span>Chest</span><strong>102cm</strong></li>
+          <li><span>Waist</span><strong>84cm</strong></li>
+          <li><span>Arms</span><strong>37cm</strong></li>
+          <li><span>Thighs</span><strong>58cm</strong></li>
+        </ul>
+      </div>
+
+      <!-- Weekly goals -->
+      <div class="dash-card">
+        <div class="dash-card-head"><h4>Weekly Goals</h4></div>
+        <div class="goal-item"><span>Train 5x</span><div class="goal-bar"><div style="width:80%"></div></div></div>
+        <div class="goal-item"><span>Protein 140g/day</span><div class="goal-bar"><div style="width:65%"></div></div></div>
+        <div class="goal-item"><span>10k steps</span><div class="goal-bar"><div style="width:92%"></div></div></div>
+      </div>
+
+      <!-- Badges -->
+      <div class="dash-card span-2">
+        <div class="dash-card-head"><h4>Achievement Badges</h4></div>
+        <div class="badge-row">
+          <div class="badge earned"><span>🏆</span>First Transformation</div>
+          <div class="badge earned"><span>🔥</span>14-Day Streak</div>
+          <div class="badge earned"><span>💪</span>100kg Squat Club</div>
+          <div class="badge"><span>🥇</span>50 Workouts</div>
+          <div class="badge"><span>⚡</span>21-Day Streak</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BOOK A TRAINER ============ -->
+<section class="section booking-section" id="book">
+  <div class="container">
+    <div class="section-head" data-aos>
+      <span class="eyebrow">[ 05 ] — BOOK A PERSONAL TRAINER</span>
+      <h2>Pick a trainer.<br>Pick a time. Show up.</h2>
+      <p class="section-sub">Confirm your session and we'll open WhatsApp with your booking ready to send.</p>
+    </div>
+
+    <div class="booking-grid" data-aos>
+      <div class="trainer-pick" id="trainers">
+        <h4 class="pick-label">1. Choose Trainer <span class="swipe-hint">— swipe to see all coaches →</span></h4>
+        <div class="trainer-cards" id="trainerCards"><!-- injected --></div>
+        <div class="trainer-rail-nav" id="trainerRailNav" aria-hidden="true">
+          <div class="trainer-dots" id="trainerDots"><!-- injected --></div>
+          <span class="trainer-counter" id="trainerCounter">1 of 5</span>
+        </div>
+      </div>
+
+      <div class="booking-panel">
+        <h4 class="pick-label">2. Choose Date &amp; Time</h4>
+
+        <div class="booking-calendar" id="bookingCalendar">
+          <div class="cal-head">
+            <button type="button" class="cal-nav" id="calPrev" aria-label="Previous month">&#8249;</button>
+            <div class="cal-title">
+              <span class="cal-month" id="calMonthLabel"></span>
+              <span class="cal-live" id="calLiveClock"></span>
+            </div>
+            <button type="button" class="cal-nav" id="calNext" aria-label="Next month">&#8250;</button>
+          </div>
+          <div class="cal-weekdays" aria-hidden="true">
+            <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+          </div>
+          <div class="cal-grid" id="calGrid" role="grid" aria-label="Choose a session date"></div>
+          <p class="cal-selected" id="calSelectedLabel"></p>
+        </div>
+
+        <p class="time-label">Available times</p>
+        <div class="time-row" id="timeRow">
+          <button type="button" class="time-pill" data-hour="7" data-minute="0">7:00 AM</button>
+          <button type="button" class="time-pill" data-hour="9" data-minute="0">9:00 AM</button>
+          <button type="button" class="time-pill" data-hour="11" data-minute="0">11:00 AM</button>
+          <button type="button" class="time-pill" data-hour="14" data-minute="0">2:00 PM</button>
+          <button type="button" class="time-pill" data-hour="17" data-minute="0">5:00 PM</button>
+          <button type="button" class="time-pill" data-hour="19" data-minute="0">7:00 PM</button>
+        </div>
+
+        <h4 class="pick-label">3. Your Details</h4>
+        <input type="text" id="bookName" class="text-input" placeholder="Your full name">
+        <input type="tel" id="bookPhone" class="text-input" placeholder="Your phone number">
+
+        <button class="btn btn-primary btn-block btn-lg" id="confirmBooking">
+          Confirm on WhatsApp
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1-.2.2-.3.2-.6.1-.9-.4-1.8-1-2.6-1.8-.8-.8-1.3-1.6-1.7-2.4-.1-.3 0-.5.1-.6.2-.2.4-.4.6-.6.2-.2.2-.4.1-.6-.1-.2-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-.9 2.3.1 1.3 1 2.6 1.2 2.8.2.2 1.9 2.9 4.6 4 2.7 1 2.7.7 3.2.7.5 0 1.6-.6 1.8-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3Z"/><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.9-1.5A10 10 0 1 0 12 2Z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NUTRITION HUB ============ -->
+<section class="section nutrition-section" id="nutrition">
+  <div class="container">
+    <div class="section-head" data-aos>
+      <span class="eyebrow">[ 06 ] — NUTRITION HUB</span>
+      <h2>Training is half<br>the equation.</h2>
+      <p class="section-sub">Pick your goal and get a quick-reference nutrition strategy to match your training.</p>
+    </div>
+
+    <div class="nutrition-tabs" data-aos>
+      <button class="ntab active" data-n="loss">Weight Loss</button>
+      <button class="ntab" data-n="gain">Muscle Gain</button>
+      <button class="ntab" data-n="football">Football Athlete</button>
+      <button class="ntab" data-n="hydration">Hydration</button>
+    </div>
+
+    <div class="nutrition-body" id="nutritionBody" data-aos><!-- injected --></div>
+  </div>
+</section>
+
+<!-- ============ MEMBERSHIP PLANS ============ -->
+<section class="section plans-section" id="plans">
+  <div class="container">
+    <div class="section-head" data-aos>
+      <span class="eyebrow">[ 07 ] — MEMBERSHIP PLANS</span>
+      <h2>Choose how<br>you train.</h2>
+      <p class="section-sub">Toggle monthly or annual billing. All plans include full app access.</p>
+    </div>
+
+    <div class="billing-toggle" data-aos>
+      <span>Monthly</span>
+      <button class="toggle" id="billingToggle"><span class="knob"></span></button>
+      <span>Annual <em>— save 15%</em></span>
+    </div>
+
+    <div class="plans-grid" data-aos>
+      <div class="plan-card">
+        <h3>Basic</h3>
+        <p class="plan-desc">For consistent, self-guided training.</p>
+        <div class="plan-price"><span class="m">₦</span><span class="amt" data-m="15000" data-y="153000">15,000</span><span class="per">/mo</span></div>
+        <ul class="plan-feats">
+          <li>Gym floor access</li>
+          <li>AI fitness search &amp; finder</li>
+          <li>Exercise reels library</li>
+          <li>Basic progress dashboard</li>
+          <li class="off">Personal trainer sessions</li>
+          <li class="off">Nutrition coaching</li>
+        </ul>
+        <a href="#book" class="btn btn-outline btn-block">Choose Basic</a>
+      </div>
+
+      <div class="plan-card featured">
+        <span class="plan-badge">MOST POPULAR</span>
+        <h3>Pro</h3>
+        <p class="plan-desc">For people serious about results.</p>
+        <div class="plan-price"><span class="m">₦</span><span class="amt" data-m="35000" data-y="357000">35,000</span><span class="per">/mo</span></div>
+        <ul class="plan-feats">
+          <li>Everything in Basic</li>
+          <li>4 trainer sessions / month</li>
+          <li>Full progress &amp; strength tracking</li>
+          <li>Custom nutrition plan</li>
+          <li>Priority booking</li>
+          <li class="off">Unlimited trainer access</li>
+        </ul>
+        <a href="#book" class="btn btn-primary btn-block">Choose Pro</a>
+      </div>
+
+      <div class="plan-card">
+        <h3>Elite</h3>
+        <p class="plan-desc">Full access, unlimited support.</p>
+        <div class="plan-price"><span class="m">₦</span><span class="amt" data-m="65000" data-y="663000">65,000</span><span class="per">/mo</span></div>
+        <ul class="plan-feats">
+          <li>Everything in Pro</li>
+          <li>Unlimited trainer sessions</li>
+          <li>Monthly body composition scan</li>
+          <li>Football performance program</li>
+          <li>Dedicated trainer assigned</li>
+          <li>1-on-1 nutrition coach</li>
+        </ul>
+        <a href="#book" class="btn btn-outline btn-block">Choose Elite</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SUCCESS STORIES ============ -->
+<section class="section stories-section" id="stories">
+  <div class="container">
+    <div class="section-head light" data-aos>
+      <span class="eyebrow">[ 08 ] — COMMUNITY SUCCESS STORIES</span>
+      <h2>Real members.<br>Real transformations.</h2>
+    </div>
+  </div>
+
+  <div class="rail-wrap container" data-aos>
+    <button class="rail-arrow left" id="storiesArrowLeft" aria-label="Scroll to previous story">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="stories-rail" id="storiesRail"><!-- injected --></div>
+    <button class="rail-arrow right" id="storiesArrowRight" aria-label="Scroll to next story">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+</section>
+
+<!-- ============ DIRECTIONS / LOCATION ============ -->
+<section class="section directions-section" id="directions">
+  <div class="container directions-grid">
+    <div class="directions-text" data-aos>
+      <span class="eyebrow">[ 09 ] — VISIT US</span>
+      <h2>Find your way<br>to MAXFIT.</h2>
+      <p class="section-sub">Plot 14, Tom Mboya Crescent, Off Aminu Kano Crescent, Wuse II, Abuja FCT.</p>
+      <div class="hours">
+        <div><span>Mon – Fri</span><strong>5:00 AM – 10:00 PM</strong></div>
+        <div><span>Saturday</span><strong>6:00 AM – 9:00 PM</strong></div>
+        <div><span>Sunday</span><strong>8:00 AM – 6:00 PM</strong></div>
+      </div>
+      <a class="btn btn-primary btn-lg" id="directionsBtn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Maxfit+Gyms,Wuse+II,Abuja">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-7.58 8-13A8 8 0 0 0 4 9c0 5.42 8 13 8 13Z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="2"/></svg>
+        Get Directions
+      </a>
+    </div>
+    <div class="directions-map" data-aos>
+      <iframe
+        src="https://www.google.com/maps?q=Wuse%20II%2C%20Abuja%2C%20Nigeria&output=embed"
+        width="100%" height="100%" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <span class="hud-corner tl"></span><span class="hud-corner tr"></span><span class="hud-corner bl"></span><span class="hud-corner br"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER / CONTACT ============ -->
+<footer class="footer" id="contact">
+  <div class="container footer-top">
+    <div class="footer-brand">
+      <span class="brand-mark">MAX<span class="accent">FIT</span></span>
+      <p>Train Smarter. Get Stronger. Stay Consistent.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="TikTok">TT</a>
+        <a href="#" aria-label="X">X</a>
+        <a href="#" aria-label="Facebook">FB</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Platform</h5>
+      <a href="#finder">Fitness Finder</a>
+      <a href="#reels">Exercise Reels</a>
+      <a href="#dashboard">My Dashboard</a>
+      <a href="#plans">Membership Plans</a>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <a href="tel:+2348012345678">+234 801 234 5678</a>
+      <a href="mailto:hello@maxfitabuja.com">hello@maxfitabuja.com</a>
+      <a href="#directions">Wuse II, Abuja FCT</a>
+    </div>
+    <div class="footer-col">
+      <h5>Hours</h5>
+      <span>Mon–Fri: 5AM–10PM</span>
+      <span>Sat: 6AM–9PM</span>
+      <span>Sun: 8AM–6PM</span>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 MAXFIT GYMS Abuja. All rights reserved.</span>
+    <span>Concept design — fitness journey platform</span>
+  </div>
+</footer>
+
+<!-- ============ FLOATING WHATSAPP ============ -->
+<a class="float-whatsapp" id="floatWA" href="https://wa.me/2348012345678?text=Hi%20MAXFIT%2C%20I%27d%20like%20to%20know%20more%20about%20your%20programs." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1-.2.2-.3.2-.6.1-.9-.4-1.8-1-2.6-1.8-.8-.8-1.3-1.6-1.7-2.4-.1-.3 0-.5.1-.6.2-.2.4-.4.6-.6.2-.2.2-.4.1-.6-.1-.2-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-.9 2.3.1 1.3 1 2.6 1.2 2.8.2.2 1.9 2.9 4.6 4 2.7 1 2.7.7 3.2.7.5 0 1.6-.6 1.8-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3Z"/><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.9-1.5A10 10 0 1 0 12 2Z" fill="none" stroke="currentColor" stroke-width="0"/></svg>
+  <span class="wa-ping"></span>
+</a>
+
+<!-- ============ VIDEO MODAL ============ -->
+<div class="modal" id="videoModal">
+  <div class="modal-card">
+    <button class="modal-close" id="modalClose">✕</button>
+    <div class="modal-video" id="modalVideo"></div>
+    <div class="modal-info">
+      <h3 id="modalTitle"></h3>
+      <div class="modal-meta" id="modalMeta"></div>
+      <a class="btn btn-primary btn-block" id="modalBook" href="#book">Book Trainer for This Workout</a>
+    </div>
+  </div>
+</div>
+
+<script src="media.config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

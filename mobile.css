@@ -1,0 +1,866 @@
+/* ===================================================================
+   MAXFIT GYMS Abuja — Mobile & Tablet Responsive Overrides
+   Loaded after style.css. Breakpoints: ≤980px, ≤600px, ≤380px
+   Fixes: AI Search, Booking (trainer / date / time), page overflow
+=================================================================== */
+
+/* ---------- TABLET + PHONE (≤980px) ---------- */
+@media (max-width: 980px) {
+
+  /* Stop grid/flex children from forcing page-wide overflow */
+  .hero-inner,
+  .ai-search,
+  .booking-grid,
+  .booking-grid > *,
+  .trainer-pick,
+  .trainer-cards,
+  .booking-panel,
+  .filter-col,
+  .filter-result {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  /* ---- AI FITNESS SEARCH ---- */
+  .ai-search {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .ai-search-label {
+    flex-wrap: wrap;
+    row-gap: 6px;
+    line-height: 1.4;
+    word-break: break-word;
+  }
+
+  /* Stack search controls — mic + Analyze on their own row on narrow screens */
+  .ai-search-bar {
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 8px;
+    padding: 8px;
+    border-radius: 8px;
+  }
+
+  .ai-icon {
+    order: 0;
+    align-self: center;
+  }
+
+  .ai-search-bar input {
+    order: 1;
+    flex: 1 1 calc(100% - 36px);
+    min-width: 0;
+    width: 100%;
+    font-size: 16px;
+    padding: 10px 4px;
+  }
+
+  .ai-mic {
+    order: 2;
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    align-self: center;
+  }
+
+  .ai-go {
+    order: 3;
+    flex: 1 1 100%;
+    width: 100%;
+    justify-content: center;
+    padding: 13px 16px;
+  }
+
+  .ai-chips {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .result-line {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .result-line .rl-k {
+    min-width: 0;
+  }
+
+  .result-card-cta {
+    flex-direction: column;
+  }
+
+  .result-card-cta .btn {
+    width: 100%;
+  }
+
+  /* ---- BOOKING: Pick a trainer / Choose Date & Time ---- */
+  .booking-section .container {
+    overflow-x: visible;
+  }
+
+  .booking-grid {
+    gap: 28px;
+    width: 100%;
+  }
+
+  .trainer-pick {
+    width: 100%;
+    overflow: visible;
+  }
+
+  .pick-label {
+    word-break: break-word;
+    line-height: 1.45;
+  }
+
+  .swipe-hint {
+    display: inline;
+    margin-top: 0;
+  }
+
+  /* Tablet: horizontal swipe rail — ~2 coaches visible, peek at the next */
+  .trainer-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: 12px;
+    width: 100%;
+    margin: 0;
+    padding: 4px 2px 12px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 2px;
+    scrollbar-width: none;
+    mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 28px), transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 28px), transparent 100%);
+  }
+
+  .trainer-cards::-webkit-scrollbar {
+    display: none;
+  }
+
+  .trainer-card {
+    flex: 0 0 auto;
+    width: clamp(148px, 42vw, 180px);
+    max-width: none;
+    scroll-snap-align: start;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 16px 12px;
+    position: relative;
+  }
+
+  .trainer-card img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .trainer-card .tc-check {
+    margin-left: 0;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  .trainer-card h5 {
+    font-size: 13px;
+    line-height: 1.25;
+    margin-top: 4px;
+  }
+
+  .trainer-card p {
+    font-size: 11px;
+    line-height: 1.35;
+  }
+
+  /* Tablet trainer rail — dot indicators + "1 of 5" counter */
+  @media (min-width: 601px) and (max-width: 980px) {
+    .trainer-rail-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .trainer-dots {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .trainer-dots .tdot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.35);
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: width 0.25s, background 0.25s, border-radius 0.25s;
+    }
+
+    .trainer-dots .tdot.active {
+      background: var(--green);
+      width: 16px;
+      border-radius: 4px;
+    }
+
+    .trainer-counter {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.5px;
+      min-width: 3.2em;
+      text-align: left;
+    }
+  }
+
+  .booking-panel {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    overflow: visible;
+  }
+
+  /* Live calendar — fully contained on mobile */
+  .booking-calendar {
+    padding: 12px;
+    margin-bottom: 16px;
+  }
+
+  .cal-month {
+    font-size: 16px;
+  }
+
+  .cal-live {
+    font-size: 9px;
+  }
+
+  .cal-nav {
+    width: 34px;
+    height: 34px;
+    font-size: 20px;
+  }
+
+  .cal-weekdays {
+    font-size: 9px;
+    gap: 3px;
+  }
+
+  .cal-grid {
+    gap: 3px;
+  }
+
+  .cal-day {
+    font-size: 13px;
+    border-radius: 6px;
+  }
+
+  .cal-selected {
+    font-size: 10px;
+    margin-top: 10px;
+  }
+
+  /* Time pills — 2-column grid so they wrap cleanly */
+  .time-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    width: 100%;
+  }
+
+  .time-pill {
+    width: 100%;
+    text-align: center;
+    white-space: normal;
+    padding: 10px 8px;
+    font-size: 13px;
+    box-sizing: border-box;
+  }
+
+  .text-input,
+  #confirmBooking {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  #confirmBooking {
+    display: flex;
+    white-space: normal;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    line-height: 1.35;
+    padding: 15px 16px;
+    font-size: 14px;
+  }
+
+  #confirmBooking svg {
+    flex-shrink: 0;
+  }
+
+  /* Buttons must never force horizontal scroll */
+  .btn {
+    white-space: normal;
+    text-align: center;
+    line-height: 1.3;
+    max-width: 100%;
+  }
+}
+
+/* ---------- PHONE (≤600px) ---------- */
+@media (max-width: 600px) {
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .section {
+    padding: 64px 0;
+  }
+
+  .section-head {
+    margin-bottom: 36px;
+  }
+
+  .section-head h2 {
+    font-size: clamp(26px, 8vw, 38px);
+  }
+
+  .section-sub {
+    font-size: 14.5px;
+  }
+
+  /* Nav */
+  .nav {
+    padding: 14px 0;
+  }
+
+  .nav.scrolled {
+    padding: 10px 0;
+  }
+
+  .nav-inner {
+    padding: 0 16px;
+  }
+
+  .brand-mark {
+    font-size: 19px;
+  }
+
+  .brand-sub {
+    font-size: 8px;
+    letter-spacing: 2px;
+  }
+
+  /* Hero */
+  .hero {
+    padding-top: 96px;
+    padding-bottom: 40px;
+  }
+
+  .hero-eyebrow {
+    font-size: 10px;
+    padding: 6px 12px;
+    margin-bottom: 20px;
+  }
+
+  .hero-title {
+    font-size: clamp(32px, 11vw, 46px);
+    letter-spacing: -0.5px;
+    margin-bottom: 18px;
+  }
+
+  .hero-title .outline {
+    -webkit-text-stroke: 1.5px var(--white);
+  }
+
+  .hero-sub {
+    font-size: 15px;
+    margin-bottom: 28px;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .hero-ctas .btn {
+    width: 100%;
+  }
+
+  .hud-corner,
+  .scroll-cue {
+    display: none;
+  }
+
+  /* AI Search — tighter phone padding */
+  .ai-search {
+    padding: 14px;
+    border-radius: 10px;
+    margin-bottom: 32px;
+  }
+
+  .ai-search-label {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  .ai-kbd-hint {
+    display: none;
+  }
+
+  .ai-badge {
+    margin-left: 0;
+  }
+
+  .ai-voice-studio {
+    padding: 12px;
+  }
+
+  .ai-match-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .ai-match-meta h4 {
+    font-size: 16px;
+  }
+
+  .ai-chips {
+    gap: 6px;
+  }
+
+  .chip {
+    font-size: 11.5px;
+    padding: 7px 11px;
+  }
+
+  .ai-result-body {
+    font-size: 13px;
+  }
+
+  .result-line .rl-k {
+    font-size: 10.5px;
+    letter-spacing: 0.5px;
+  }
+
+  .hero-stats {
+    gap: 22px 28px;
+  }
+
+  .stat-num {
+    font-size: 24px;
+  }
+
+  .stat-label {
+    font-size: 10.5px;
+  }
+
+  /* Finder */
+  .filter-col {
+    padding: 20px;
+  }
+
+  .filter-result {
+    min-height: 240px;
+    padding: 24px 20px;
+  }
+
+  .rec-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .rec-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rec-actions {
+    flex-direction: column;
+  }
+
+  .rec-actions .btn {
+    width: 100%;
+  }
+
+  /* Reels */
+  .rail-arrow {
+    width: 38px;
+    height: 38px;
+  }
+
+  .reels-rail {
+    padding: 0 16px 20px;
+    gap: 12px;
+  }
+
+  .reel-info h4 {
+    font-size: 13px;
+  }
+
+  .reel-meta {
+    font-size: 9.5px;
+    gap: 7px;
+  }
+
+  .reel-play {
+    width: 38px;
+    height: 38px;
+  }
+
+  .reels-tabs {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 6px;
+    margin: 6px -16px 0;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .reels-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .rtab {
+    flex: 0 0 auto;
+    font-size: 12.5px;
+    padding: 8px 14px;
+  }
+
+  /* Dashboard */
+  .dash-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .span-2 {
+    grid-column: span 1;
+  }
+
+  .dash-card {
+    padding: 18px;
+  }
+
+  .bar-row {
+    grid-template-columns: minmax(60px, 90px) 1fr minmax(36px, 50px);
+    gap: 8px;
+    font-size: 12px;
+  }
+
+  .badge-row {
+    gap: 8px;
+  }
+
+  .badge {
+    font-size: 11.5px;
+    padding: 8px 12px;
+  }
+
+  /* Booking — phone: stack ALL trainers vertically, full width, no swipe needed */
+  .trainer-pick .swipe-hint {
+    display: none;
+  }
+
+  .trainer-cards {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    overflow-x: visible;
+    overflow-y: visible;
+    scroll-snap-type: none;
+    mask-image: none;
+    -webkit-mask-image: none;
+    gap: 10px;
+    padding: 0;
+  }
+
+  .trainer-card {
+    width: 100%;
+    max-width: 100%;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    gap: 14px;
+    padding: 14px;
+    scroll-snap-align: none;
+  }
+
+  .trainer-card img {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+  }
+
+  .trainer-card > div {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .trainer-card h5 {
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 2px;
+  }
+
+  .trainer-card p {
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .trainer-card .tc-check {
+    position: static;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  .booking-panel {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .booking-panel .pick-label {
+    font-size: 11px;
+  }
+
+  .cal-day {
+    font-size: 12px;
+  }
+
+  .cal-month {
+    font-size: 15px;
+  }
+
+  .time-pill {
+    font-size: 12.5px;
+    padding: 9px 6px;
+  }
+
+  .text-input {
+    padding: 13px;
+    font-size: 16px;
+  }
+
+  /* Nutrition */
+  .nutrition-tabs {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 6px;
+    margin: 0 -16px 28px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .nutrition-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ntab {
+    flex: 0 0 auto;
+    font-size: 12.5px;
+    padding: 9px 15px;
+  }
+
+  .nutrition-body {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .nutri-card {
+    padding: 18px;
+  }
+
+  /* Plans */
+  .billing-toggle {
+    font-size: 13px;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
+
+  .plans-grid {
+    gap: 18px;
+  }
+
+  .plan-card {
+    padding: 26px 22px;
+  }
+
+  .plan-price .amt {
+    font-size: 32px;
+  }
+
+  /* Stories */
+  .stories-rail {
+    padding: 0 16px;
+    gap: 14px;
+  }
+
+  .story-imgs {
+    height: 180px;
+  }
+
+  /* Directions */
+  .directions-section {
+    padding-top: 64px;
+  }
+
+  .hours div {
+    font-size: 13.5px;
+    max-width: 100%;
+  }
+
+  .directions-map {
+    height: 260px;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 50px 0 0;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-bottom: 36px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    text-align: left;
+  }
+
+  /* Floating WhatsApp */
+  .float-whatsapp {
+    width: 50px;
+    height: 50px;
+    bottom: 18px;
+    right: 16px;
+  }
+
+  .float-whatsapp svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* Modal */
+  .modal {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .modal-card {
+    border-radius: 16px 16px 0 0;
+    max-height: 94vh;
+    width: 100%;
+  }
+
+  .modal-video {
+    min-height: 200px;
+  }
+
+  .modal-info {
+    padding: 22px;
+  }
+
+  .modal-info h3 {
+    font-size: 19px;
+  }
+
+  /* iOS Safari — prevent zoom on focus */
+  .filter-group select,
+  .text-input {
+    font-size: 16px;
+  }
+
+  /* No hover lift on touch */
+  .reel-card:hover,
+  .trainer-card:hover,
+  .plan-card:hover,
+  .story-card:hover,
+  .dash-card:hover {
+    transform: none;
+  }
+
+  /* Chips scroll horizontally on very narrow screens */
+  .ai-chips {
+    display: flex;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    margin-top: 12px;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+
+  .ai-chips::-webkit-scrollbar {
+    display: none;
+  }
+
+  .chip {
+    flex: 0 0 auto;
+  }
+}
+
+/* ---------- SMALL PHONE (≤380px) ---------- */
+@media (max-width: 380px) {
+
+  .hero-title {
+    font-size: 30px;
+  }
+
+  .hero-stats {
+    gap: 18px 22px;
+  }
+
+  .stat-num {
+    font-size: 21px;
+  }
+
+  .section-head h2 {
+    font-size: 24px;
+  }
+
+  .rail-arrow {
+    width: 36px;
+    height: 36px;
+  }
+
+  .cal-day {
+    font-size: 11px;
+    border-radius: 5px;
+  }
+
+  .cal-nav {
+    width: 32px;
+    height: 32px;
+  }
+
+  .time-row {
+    grid-template-columns: 1fr;
+  }
+
+  .badge-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .badge {
+    justify-content: center;
+  }
+}
