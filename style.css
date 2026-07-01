@@ -273,11 +273,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
 .ai-search-bar input::placeholder{color:#666;}
 .ai-mic{
   width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-  color:var(--muted);flex-shrink:0;transition:.25s;
+  color:#06150D;background:var(--green);flex-shrink:0;transition:.25s;
+  box-shadow:0 0 0 0 var(--green-glow);
+  animation:micpulse 2s infinite;
 }
-.ai-mic:hover{color:var(--green);background:rgba(0,255,133,.08);}
+.ai-mic:hover{filter:brightness(1.1);}
 .ai-mic.listening{color:#06150D;background:var(--green);animation:micpulse 1s infinite;}
-@keyframes micpulse{50%{box-shadow:0 0 0 8px var(--green-glow);}}
+@keyframes micpulse{50%{box-shadow:0 0 0 10px var(--green-glow);}}
 .ai-go{
   background:var(--green);color:#06150D;font-weight:700;font-size:13px;
   padding:12px 18px;border-radius:3px;display:flex;align-items:center;gap:6px;flex-shrink:0;
